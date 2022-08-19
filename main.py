@@ -9,8 +9,8 @@ bot = telebot.TeleBot(token)
 bulochka_in = True
 cutie_in = True
 bulochka = '\U0001f408\u200D\u2B1BBulochka'
-bulochka_outside = open('bul_out.mp4', 'rb')
-cutie_outside = open('cutie_out.mp4', 'rb')
+bulochka_outside = open('images/bul_out.mp4', 'rb')
+cutie_outside = open('images/cutie_out.mp4', 'rb')
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -40,12 +40,12 @@ def bot_message(message):
             if bulochka_in == True and bulochka_in == cutie_in:
                 bot.send_message(message.chat.id, f'\U0001F431Cutie and {bulochka} are at home', reply_markup=markup)
                 markup.add(item1a, item2, back)
-                bot.send_sticker(message.chat.id, open('home_state.webp', 'rb'))
+                bot.send_sticker(message.chat.id, open('images/home_state.webp', 'rb'))
             elif bulochka_in == False and bulochka_in == cutie_in:
                 markup.add(item1a, item2, back)
                 bot.send_message(message.chat.id, f'\U0001F431Cutie and {bulochka} are playing outside',
                                  reply_markup=markup)
-                bot.send_sticker(message.chat.id, open('both_outside.webp', 'rb'))
+                bot.send_sticker(message.chat.id, open('images/both_outside.webp', 'rb'))
             elif bulochka_in == True and bulochka_in != cutie_in:
                 markup.add(item1a, item2, back)
                 bot.send_message(message.chat.id,
